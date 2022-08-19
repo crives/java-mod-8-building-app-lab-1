@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-9 border p-3">
-      <app-sender-message-component></app-sender-message-component>
+      <app-sender-message-component 
+        [message]="senderMessages"
+      ></app-sender-message-component>
     </div>
   </div>
   <div class="row">
     <div class="col-9 border p-3">
-      <app-sender-message-component></app-sender-message-component>
+      <app-sender-message-component 
+        [message]="userMessages"
+      ></app-sender-message-component>
     </div>
   </div>
 </div>
