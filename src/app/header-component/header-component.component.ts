@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { User } from "../user.model";
 
 @Component({
   selector: "app-header-component",
@@ -6,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header-component.component.css"],
 })
 export class HeaderComponentComponent implements OnInit {
-  activeUser = {
+  activeUser: User = {
     firstName: "Maria",
   };
 
