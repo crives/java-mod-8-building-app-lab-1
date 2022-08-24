@@ -7,7 +7,8 @@ import { Message } from '../message.model';
   styleUrls: ['./send-message-component.component.css']
 })
 export class SendMessageComponentComponent implements OnInit {
-
+  messageString: string;
+  
   @Input() message: Message = {
     sender: { firstName: "Ludovic" },
     text: "Message from Ludovic",

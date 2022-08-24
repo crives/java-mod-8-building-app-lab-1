@@ -3,13 +3,13 @@
     <div class="col-1 p-3">
       <span
         class="badge"
-        [ngClass]="message.sender.isOnline ? 'bg-primary' : 'bg-secondary'"
+        [ngStyle]="getCurrentStyles()"
       >
         {{message.sender.firstName[0]}}
       </span>
     </div>
     <div class="col-8 p-3 border rounded-5">
-      <span>{{message.text}}</span>
+      <span [ngClass]="message.sender.isOnline ? 'fw-bold' : 'fw-light'">{{message.text}}</span>
     </div>
   </div>
 </div>

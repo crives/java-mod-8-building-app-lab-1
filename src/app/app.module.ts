@@ -11,6 +11,8 @@ import { SendMessageComponentComponent } from './send-message-component/send-mes
 import { ContactListComponentComponent } from './contact-list-component/contact-list-component.component';
 import { ContactComponentComponent } from './contact-component/contact-component.component';
 import { ConversationControlComponentComponent } from './conversation-control-component/conversation-control-component.component';
+import { FormsModule } from "@angular/forms";
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { ConversationControlComponentComponent } from './conversation-control-co
     UserMessageComponentComponent,
     SendMessageComponentComponent,
     ContactListComponentComponent,
-    ContactComponentComponent
+    ContactComponentComponent,
+    HighlightDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
