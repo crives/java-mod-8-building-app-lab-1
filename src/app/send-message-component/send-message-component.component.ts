@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../message.model';
+import { LoggingServiceService } from '../logging-service.service';
+import { User } from '../user.model';
+import { MessagingDataService } from '../messaging-service.service';
 
 @Component({
   selector: 'app-send-message-component',
@@ -8,7 +11,11 @@ import { Message } from '../message.model';
 })
 export class SendMessageComponentComponent implements OnInit {
   messageString: string;
-  
+
+  constructor(private loggingSvce: LoggingServiceService, private messagingSvce: MessagingDataService) { }
+
+  // loggingSvce = new LoggingServiceService(); // create a new instance of the service
+
   @Input() message: Message = {
     sender: { firstName: "Ludovic" },
     text: "Message from Ludovic",
@@ -16,9 +23,13 @@ export class SendMessageComponentComponent implements OnInit {
     sequenceNumber: 0,
   };
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  // use the instance of the logging service in our event handler
+  onSendMessage() {
+    this.messagingSvce.addUserMessage(new Message(new User("Caroline", true), this.messageString, 1, 0));
+
+    this.loggingSvce.log("Sending following message: ");
+    this.loggingSvce.log(this.messageString);
   }
-
 }
