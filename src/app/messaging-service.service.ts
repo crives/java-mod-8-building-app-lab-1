@@ -44,6 +44,13 @@ export class MessagingDataService {
   }
 
   addUserMessage(newMessage: Message) {
+    this.httpClient.post<Message[]>("http://localhost:8080/api/add-user-message", newMessage).subscribe(
+        (messages: Message[]) => {
+            console.log(messages);
+            this.userMessages = messages;
+            this.userMessagesChanged.emit(this.userMessages);
+        }
+    )
     this.userMessages.push(newMessage);
     this.userMessagesChanged.emit(this.userMessages.slice());
   }
