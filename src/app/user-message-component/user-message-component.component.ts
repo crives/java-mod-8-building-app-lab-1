@@ -10,7 +10,7 @@ export class UserMessageComponentComponent implements OnInit {
   
   @Input() message: Message = {
     sender: { firstName: "Ludovic" },
-    text: "Message from Ludovic",
+    text: "Message from Ludo - User",
     conversationId: 1,
     sequenceNumber: 0,
   };
@@ -19,5 +19,4 @@ export class UserMessageComponentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -17,9 +17,14 @@ export class ConversationThreadComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.senderMessages = this.messagingSvce.getSenderMessages();
+    this.messagingSvce.senderMessagesChanged.subscribe((messages: Message[]) => {
+      console.log("********** sender messages have changed");
+      this.senderMessages = messages;
+    })
+    
     this.userMessages = this.messagingSvce.getUserMessages();
     this.messagingSvce.userMessagesChanged.subscribe((messages: Message[]) => {
-      console.log("********** messages have changed");
+      console.log("********** user messages have changed");
       this.userMessages = messages;
     })
   }

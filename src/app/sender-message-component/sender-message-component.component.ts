@@ -9,7 +9,7 @@ export class SenderMessageComponentComponent implements OnInit {
   
   @Input() message = {
     sender: { firstName: "Ludovic", isOnline: true },
-    text: "Message from Ludovic",
+    text: "Message from Ludo -- Sender",
     conversationId: 1,
     sequenceNumber: 0,
   };

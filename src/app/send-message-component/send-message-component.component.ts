@@ -14,11 +14,16 @@ export class SendMessageComponentComponent implements OnInit {
 
   constructor(private loggingSvce: LoggingServiceService, private messagingSvce: MessagingDataService) { }
 
-  // loggingSvce = new LoggingServiceService(); // create a new instance of the service
+  // @Input() message: Message = {
+  //   sender: { firstName: "Ludovic" },
+  //   text: "Message from Ludovic",
+  //   conversationId: 1,
+  //   sequenceNumber: 0,
+  // };
 
-  @Input() message: Message = {
+    @Input() message: Message = {
     sender: { firstName: "Ludovic" },
-    text: "Message from Ludovic",
+    text: "Message from Ludo -- Test",
     conversationId: 1,
     sequenceNumber: 0,
   };
@@ -28,6 +33,7 @@ export class SendMessageComponentComponent implements OnInit {
   // use the instance of the logging service in our event handler
   onSendMessage() {
     this.messagingSvce.addUserMessage(new Message(new User("Caroline", true), this.messageString, 1, 0));
+    // this.messagingSvce.addSenderMessage(new Message(new User("Ludovic", true), this.messageString, 1, 0));
 
     this.loggingSvce.log("Sending following message: ");
     this.loggingSvce.log(this.messageString);
